@@ -1,0 +1,183 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    overflow-x: hidden;
+    background-image: url('./assets/images/what-the-hex.png');
+}
+
+.nav-brand {
+    font-size: 15px;
+    font-weight: 600;
+    vertical-align: sub;
+}
+
+.mat-toolbar {
+    position: fixed;
+    z-index: 5;
+}
+
+.mat-progress-spinner {
+    margin: 50px auto !important;
+}
+.mat-toolbar-multiple-rows, .mat-toolbar-row, .mat-toolbar-single-row {
+    min-height: 60px !important;
+    max-height: 60px !important;
+    height: 60px !important;
+}
+.mat-card {
+    padding: 0px !important;
+    margin-top: 78px;
+}
+.mat-card-header {
+    background-color: #3f51b5;
+    border-bottom: 1px solid #3f51b5;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+}
+.mat-card-header-text {
+    padding: 5px;
+    color:rgba(0,0,0,.54)
+}
+
+.inner-addon {
+    margin: 8px 0px;
+    width: 280px;
+    position: absolute !important;
+    right: 8px;
+  }
+  
+  /* style glyph */
+  .inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+  .right-addon .glyphicon { 
+      right: 0px;
+      color: rgba(0,0,0,.45);
+}
+  .right-addon input { padding-right: 30px; }
+
+.mat-card-content {
+    min-height: 200px;
+}
+
+.example-icon {
+    padding: 0 25px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .filter-beer-input {
+    padding: 10px 15px;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .highlight {
+      background-color: yellow;
+  }
+
+  tr.mat-header-row {
+      height: 48px !important;
+  }
+
+  .mat-header-cell {
+      font-size: 15px;
+      font-weight: bold;
+  }
+
+  .mat-table tr>th, .mat-table tr>td {
+      max-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+
+  .mat-table tbody>tr:hover,.mat-table tbody>tr:focus, mat-list-item:hover, mat-list-item:focus {
+    cursor: pointer;
+    background-color: #f2f2f2;
+  }
+
+  .text-row {
+      float: left;
+      font-weight: 600;
+      font-size: 15px;
+      color: rgba(0, 0, 0, 0.54);
+  }
+  .button-row {
+      float: right;
+  }
+
+  .button-row>button {
+      margin-right: 5px;
+  }
+
+  .beer-details>mat-list-item span {
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 600;
+  }
+.beer-image {
+    border-radius: 50%;
+    border: 1px solid #f2f2f2;
+    width: 38px;
+    padding: 6px;
+    margin-right: 15px;
+}
+
+.column1 {
+    width: 50%;
+}
+
+.column2 {
+    width: 20%;
+}
+
+.column3 {
+    width: 10%;
+}
+ 
+
+  .checkout-btn {
+    position: absolute !important;
+    right: 5px;
+  }
+
+  .add-remove-icon {
+      font-size: 35px !important;
+  }
+
+  [hidden], template {
+    display: none !important;
+}
+.image-ref, .image-ref a {
+    float: right;
+    font-size: 12px;
+    color: rgba(0,0,0,.5);
+    line-height: 30px;
+}
+@media only screen and (max-width: 600px) {
+    .column1 {
+        width: 60%;
+    }
+  
+    .column2 {
+        width: 25%;
+    }
+    .column3 {
+        width: 15%;
+    }
+    .inner-addon {
+        width: 200px;
+    }
+}

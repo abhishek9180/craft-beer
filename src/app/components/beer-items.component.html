@@ -1,0 +1,120 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+                <img src="../assets/images/beer.png" alt="user">
+        </mat-card-title>
+        <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-search"></i>
+            <input id="beerName" type="text" class="form-control" name="name" placeholder="Enter Beer name" (keyup)="applyFilter($event.target.value)">
+        </div>
+        <!-- <mat-form-field>
+            <input matInput placeholder="Filter">
+        </mat-form-field> -->
+    </mat-card-header>
+    <mat-card-content>
+        <!-- tabs -->
+        <mat-tab-group>
+            <mat-tab label="SELECT BEERS">
+                <!-- beer items -->
+                <mat-spinner [hidden]="!loading"></mat-spinner>
+                <div [hidden]="loading">
+
+                    <div class="filter-beer-input">
+                        <!-- <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                            </mat-form-field> -->
+                        <div class="text-row">
+                            <p>Click on <mat-icon aria-label="hint">favorite_border</mat-icon> to add your make your time super AWESOME<mat-icon aria-label="Mood">mood</mat-icon>!!</p>
+                        </div>
+
+                        <div class="button-row">
+                            <button mat-raised-button [disabled]="cartItems.size === 0" (click)="resetCartItems(false)">
+                                <mat-icon aria-label="Iems">cancel</mat-icon> EMPTY CART
+                            </button>
+                        </div>
+                    </div>
+
+                    <table mat-table [dataSource]="dataSource" matSort>
+
+                        <!-- Progress Column -->
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef class="column1"> NAME </th>
+                            <td mat-cell *matCellDef="let row">
+                                <img src="../../assets/images/beer-1-32.png" alt="Beer" class="beer-image">
+                                <span [innerHTML]="row.name ? (row.name | highlight: filterValue) : '-'"></span>
+                            </td>
+                        </ng-container>
+
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="abv">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="column2"> ALCOHOLIC</th>
+                            <td mat-cell *matCellDef="let row" [innerHTML]="row.abv ? (row.abv | highlight: filterValue) : '_'"></td>
+                        </ng-container>
+
+                        <!-- Color Column -->
+                        <ng-container matColumnDef="style">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header class="column2 visible-md visible-lg"> STYLE</th>
+                            <td class="visible-md visible-lg" mat-cell *matCellDef="let row" [innerHTML]="row.style ? (row.style | highlight: filterValue) : '_'"></td>
+                        </ng-container>
+
+                        <!-- ID Column -->
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef class="column3"> </th>
+                            <td mat-cell *matCellDef="let row;">
+                                <button mat-icon-button [hidden]="row.selected" (click)="updateSelectedItems($event, row)">
+                                    <mat-icon class="add-remove-icon" aria-label="Remove from Cart">favorite_border</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" [hidden]="!row.selected" (click)="updateSelectedItems($event, row)">
+                                    <mat-icon class="add-remove-icon" aria-label="Add to Cart">favorite</mat-icon>
+                                </button>
+
+                            </td>
+                        </ng-container>
+
+                        <!-- <ng-container matColumnDef="ibu">
+                            <th mat-header-cell *matHeaderCellDef class="column3"> Ibu </th>
+                            <td mat-cell *matCellDef="let row" [innerHTML]="row.ibu ? (row.ibu | highlight: filterValue) : '-'"></td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="ounces">
+                            <th mat-header-cell *matHeaderCellDef class="column4"> ounces </th>
+                            <td mat-cell *matCellDef="let row" [innerHTML]="row.ounces ? (row.ounces | highlight: filterValue) : '-'"></td>
+                        </ng-container> -->
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showDetails(row)">
+                        </tr>
+                    </table>
+
+                    <mat-paginator [pageSizeOptions]="[7, 10, 20, 40, 80, 200]"></mat-paginator>
+
+
+                </div>
+            </mat-tab>
+            <mat-tab label="CHECKOUT">
+                <mat-list>
+                    <div mat-subheader>
+                        <button mat-raised-button color="primary" class="checkout-btn" [disabled]="cartItems.size === 0" (click)="checkoutCartItems()">
+                            <mat-icon aria-label="Remove from Cart">done_outline</mat-icon> CHECKOUT
+                        </button>
+                    </div>
+                    <ng-container *ngFor="let item of beerItems">
+                        <mat-list-item *ngIf="item.selected" (click)="showDetails(item)">
+                            <mat-icon mat-list-icon aria-label="Items">whatshot</mat-icon>
+                            <h4 mat-line [innerHTML]="item.name ? (item.name | highlight: filterValue) : '-'"></h4>
+                            <p mat-line> {{item.style ? item.style : '-'}} </p>
+
+                            <button mat-icon-button color="primary" [hidden]="!item.selected" (click)="updateSelectedItems($event, item)">
+                                <mat-icon class="add-remove-icon" aria-label="Add to Cart">favorite</mat-icon>
+                            </button>
+
+                        </mat-list-item>
+                    </ng-container>
+
+                </mat-list>
+
+            </mat-tab>
+        </mat-tab-group>
+
+    </mat-card-content>
+</mat-card>
