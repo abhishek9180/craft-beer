@@ -8,7 +8,7 @@ This project is developed using following technologies
 - Open nodejs command prompt
 - Navigate to **crafts-beer** directory
 - run command **npm start** 
-- open browser and enter url [https://localhost:400](https://localhost:4000) or indicated on command prompt incase if the url is different.
+- open browser and enter url [https://localhost:4000](https://localhost:4000) or indicated on command prompt incase if the url is different.
 
 ### Steps to run the application on Web Server For Chrome
 - Open **Web Server for Chrome**

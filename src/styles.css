@@ -63,6 +63,10 @@ body {
     min-height: 200px;
 }
 
+.mat-tab-body-content {
+    overflow: hidden !important;
+}
+
 .example-icon {
     padding: 0 25px;
   }

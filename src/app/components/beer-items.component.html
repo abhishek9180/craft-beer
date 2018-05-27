@@ -7,9 +7,6 @@
             <i class="glyphicon glyphicon-search"></i>
             <input id="beerName" type="text" class="form-control" name="name" placeholder="Enter Beer name" (keyup)="applyFilter($event.target.value)">
         </div>
-        <!-- <mat-form-field>
-            <input matInput placeholder="Filter">
-        </mat-form-field> -->
     </mat-card-header>
     <mat-card-content>
         <!-- tabs -->
@@ -20,9 +17,6 @@
                 <div [hidden]="loading">
 
                     <div class="filter-beer-input">
-                        <!-- <mat-form-field>
-                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-                            </mat-form-field> -->
                         <div class="text-row">
                             <p>Click on <mat-icon aria-label="hint">favorite_border</mat-icon> to add your make your time super AWESOME<mat-icon aria-label="Mood">mood</mat-icon>!!</p>
                         </div>
@@ -71,22 +65,12 @@
                             </td>
                         </ng-container>
 
-                        <!-- <ng-container matColumnDef="ibu">
-                            <th mat-header-cell *matHeaderCellDef class="column3"> Ibu </th>
-                            <td mat-cell *matCellDef="let row" [innerHTML]="row.ibu ? (row.ibu | highlight: filterValue) : '-'"></td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="ounces">
-                            <th mat-header-cell *matHeaderCellDef class="column4"> ounces </th>
-                            <td mat-cell *matCellDef="let row" [innerHTML]="row.ounces ? (row.ounces | highlight: filterValue) : '-'"></td>
-                        </ng-container> -->
-
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="showDetails(row)">
                         </tr>
                     </table>
 
-                    <mat-paginator [pageSizeOptions]="[7, 10, 20, 40, 80, 200]"></mat-paginator>
+                    <mat-paginator [pageSizeOptions]="[7, 20, 40, 80, 200]"></mat-paginator>
 
 
                 </div>

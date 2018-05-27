@@ -37,11 +37,6 @@ export class BeerItemsComponent implements OnInit {
         this.cartItems.add(i);
       });
     }
-    if(this.snackBarRef){
-      this.snackBarRef.onAction().subscribe(() => {
-        this.snackBarRef.dismiss();
-      });
-    }
     
   }
 
@@ -91,7 +86,7 @@ export class BeerItemsComponent implements OnInit {
     if(row.selected) {
       this.cartItems.add(row);
       this.snackBarRef = this.snackBar.open('Added to Cart', 'Dismiss', {
-        duration: 8000
+        duration: 3000
       });
     } else {
       this.cartItems.forEach(data => {
@@ -100,7 +95,7 @@ export class BeerItemsComponent implements OnInit {
         }
       });
       this.snackBarRef = this.snackBar.open('Removed From Cart', 'Dismiss', {
-        duration: 8000
+        duration: 3000
       });
     }
     let localStorageData: BeerDataBean[] = [];
@@ -129,12 +124,12 @@ export class BeerItemsComponent implements OnInit {
       message = 'All Items Removed from Cart';
     }
     this.snackBarRef = this.snackBar.open(message, 'Dismiss', {
-      duration: 8000
+      duration: 3000
     });
   }
 
   showDetails(row: any) {
-    console.log("details");
+    //console.log("details");
     this.dialog.open(DialogDataExampleDialog, {
       data: row
     });
@@ -142,10 +137,6 @@ export class BeerItemsComponent implements OnInit {
   
   checkoutCartItems() {
     this.resetCartItems(true);
-  }
-
-  removeCartItems() {
-
   }
 
 }
